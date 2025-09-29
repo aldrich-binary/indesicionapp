@@ -1,6 +1,6 @@
 import { sleep } from "@/components/chat/helpers/sleep";
 import type { ChatMessageInterface } from "@/interfaces/chat-message-interface";
-import { useQuery, useQueryClient } from "@tanstack/vue-query";
+import { useQuery } from "@tanstack/vue-query";
 import { ref } from "vue";
 
 export const useChat = () => {
