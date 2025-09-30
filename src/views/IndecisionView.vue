@@ -1,17 +1,36 @@
 <script setup lang="ts">
 import ChatBox from "@/components/chat/ChatBox.vue";
 import ChatMessages from "@/components/chat/ChatMessages.vue";
+import HeaderChat from "@/components/chat/HeaderChat.vue";
+import { Button } from "@/components/ui/button";
 import { useChat } from "@/composables/useChat";
-import { MessageCircleMore } from "lucide-vue-next";
+import { Ellipsis, MessageCircleMore, Phone, Video } from "lucide-vue-next";
 
-const { addMessage, messages, isLoading, isFetching } = useChat();
+const { addMessage, messages } = useChat();
 </script>
 
 <template>
   <div class="bg-gray-100 h-screen flex flex-col max-w-lg mx-auto">
-    <div class="bg-blue-500 p-4 text-white flex justify-between items-center">
-      <span>Yo mismo</span>
+    <div
+      class="bg-white m-2 rounded-xl shadow-sm border-b p-4 flex justify-between items-center"
+    >
+      <HeaderChat />
+
+      <div class="flex items-center gap-2">
+        <Button variant="outline" class="cursor-pointer">
+          <Video />
+        </Button>
+
+        <Button variant="outline" class="cursor-pointer">
+          <Phone />
+        </Button>
+
+        <Button variant="outline" class="cursor-pointer">
+          <Ellipsis />
+        </Button>
+      </div>
     </div>
+
     <div
       v-if="messages.length === 0"
       class="flex-1 flex flex-col items-center justify-center p-8 text-center"
